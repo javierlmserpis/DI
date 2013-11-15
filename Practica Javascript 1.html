@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" /><title>Practica Javascript 1</title>
+<script type="text/javascript" >
+  
+//ejercicio1
+var boolean1 = true;
+var numero1 = 5;
+var boolean2 = false;
+var str1 = "hola";
+var str2 = "adios";
+var numero2 = 2;
+
+//seccion b
+if (numero1 > numero2){
+alert("el numero 1 es mayor");}
+else{
+alert("el numero 2 es mayor");}
+
+//seccion c - true OR false
+var res = boolean1 || boolean2;
+alert(res);
+//         true AND false
+var res2 = boolean1 && boolean2;
+alert(res2);
+
+//seccion d
+var resuma = numero1 + numero2;
+  alert("La suma es: "+resuma);
+  
+var resresta = numero1 - numero2;
+  alert("La resta es: "+resresta);
+
+var resmultiplicacion = numero1 * numero2;
+  alert("La multiplicacion es: "+resmultiplicacion);
+  
+var restodiv = numero1 % numero2;
+  alert("El resto producido en la division es: "+restodiv);
+  
+var resdivision = numero1 / numero2;
+  alert("La division es: "+resdivision);
+
+//ejercicio2
+ function numascendentes() {
+  var num1 = document.getElementById("numero1").value;
+  var num2 = document.getElementById("numero2").value;
+  var num3 = document.getElementById("numero3").value;
+  
+  var ascendentes = [num1,num2,num3];
+  resultAS = ascendentes.sort();
+  document.getElementById("resultascendente").value = resultAS;
+ }
+ 
+ //ejercicio3
+ var numero1 = 5;
+var numero2 = 8;
+ 
+if() {
+  alert("numero1 no es mayor que numero2");
+}
+if(...) {var numero1 = 5;
+var numero2 = 8;
+ 
+if(...) {
+  alert("numero1 no es mayor que numero2");
+}
+
+  alert("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
+}
+</script>
+
+</head>
+<body>
+Textos para el ejercicio 2<br><br>
+<form>
+Numero 1: <input type="text" id="numero1" maxlength="9"><br>
+Numero 2: <input type="text" id="numero2" maxlength="9"><br>
+Numero 3: <input type="text" id="numero3" maxlength="9"><br>
+<input type="button" value="Ejecuuutar" onclick="numascendentes();">
+  <br><br>
+Ascendencia: <input type="text" id="resultascendente">
+</form>
+
+</body>
+</html>

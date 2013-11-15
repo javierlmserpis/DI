@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" /><title>Practica Javascript 1</title>
+<script type="text/javascript" >
+var boolean1 = true;
+var numero1 = 2;
+var boolean2 = false;
+var str1 = "hola";
+var str2 = "adios";
+var numero2 = 5;
+
+if (numero1 > numero2){
+alert("el numero 1 es mayor");}
+else{
+alert("el numero 2 es mayor");}
+
+</script>
+
+</head>
+<body>
+  <br />
+</body>
+</html>
