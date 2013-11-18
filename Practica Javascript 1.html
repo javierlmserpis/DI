@@ -25,21 +25,22 @@ var res2 = boolean1 && boolean2;
 alert(res2);
 
 //seccion d
+function operaciones(){
 var resuma = numero1 + numero2;
-  alert("La suma es: "+resuma);
+  document.getElementById("resultadosuma").value = resuma;
   
 var resresta = numero1 - numero2;
-  alert("La resta es: "+resresta);
+  document.getElementById("resultadoresta").value = resresta;
 
 var resmultiplicacion = numero1 * numero2;
-  alert("La multiplicacion es: "+resmultiplicacion);
+  document.getElementById("resultadomultiplicacion").value = resmultiplicacion;
   
 var restodiv = numero1 % numero2;
-  alert("El resto producido en la division es: "+restodiv);
+  document.getElementById("resultadomodulo").value = restodiv;
   
 var resdivision = numero1 / numero2;
-  alert("La division es: "+resdivision);
-
+  document.getElementById("resultadodivision").value = resdivision;
+}
 //ejercicio2
  function numascendentes() {
   var num1 = document.getElementById("numero1").value;
@@ -51,35 +52,69 @@ var resdivision = numero1 / numero2;
   document.getElementById("resultascendente").value = resultAS;
  }
  
- //ejercicio3
- var numero1 = 5;
+//ejercicio3
+function ifs(){
+var numero1 = 5;
 var numero2 = 8;
  
-if() {
-  alert("numero1 no es mayor que numero2");
+if(numero1 <= numero2) {
+  document.getElementById("alert1").value = "numero1 no es mayor que numero2" ;
 }
-if(...) {var numero1 = 5;
-var numero2 = 8;
- 
-if(...) {
-  alert("numero1 no es mayor que numero2");
+if( numero2 > 0) {
+  document.getElementById("alert2").value = "numero2 es positivo";
+}
+if(numero1 < 0 || numero1 != 0) {
+  document.getElementById("alert3").value = "numero1 es negativo o distinto de cero";
+}
+if(++numero1 < numero2) {
+  document.getElementById("alert4").value = "Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2. "+"El numero es ahora: "+numero1;
+}
+}
+//ejercicio factorial
+function factorial() {
+  var formusuario = document.getElementById("inputUsuario").value;
+  var result = 1;
+  
+  for(var i=1; i<=formusuario; i++) {
+  result *= i;
+  }
+document.getElementById("resultadoFactorial").value = result;
 }
 
-  alert("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
-}
 </script>
 
 </head>
 <body>
-Textos para el ejercicio 2<br><br>
-<form>
-Numero 1: <input type="text" id="numero1" maxlength="9"><br>
-Numero 2: <input type="text" id="numero2" maxlength="9"><br>
-Numero 3: <input type="text" id="numero3" maxlength="9"><br>
-<input type="button" value="Ejecuuutar" onclick="numascendentes();">
-  <br><br>
-Ascendencia: <input type="text" id="resultascendente">
-</form>
 
+<form>
+<h3>Formulario d)</h3>
+Resultado suma: <input type="text" id="resultadosuma" readonly="readonly"><br>
+Resultado resta: <input type="text" id="resultadoresta" readonly="readonly"><br>
+Resultado multiplicacion: <input type="text" id="resultadomultiplicacion" readonly="readonly"><br>
+Resultado division: <input type="text" id="resultadodivision" readonly="readonly"><br>
+Resultado modulo: <input type="text" id="resultadomodulo" readonly="readonly"><br>
+<input type="button" value="Ejecutar operaciones" onclick="operaciones();"><br><br>
+<hr>
+<h3>Formulario para el ejercicio 2</h3>
+Numero 1: <input type="text" id="numero1" maxlength="9" size="8"><br>
+Numero 2: <input type="text" id="numero2" maxlength="9" size="8"><br>
+Numero 3: <input type="text" id="numero3" maxlength="9" size="8"><br>
+<input type="button" value="Ejecutar" onclick="numascendentes();">
+  <br><br>
+Ascendencia: <input type="text" id="resultascendente" maxlength="27" readonly="readonly">
+<hr>
+<h3>Ejercicio 3</h3>
+Alert1: <input type="text" id="alert1"  size="25" readonly="readonly"><br>
+Alert2: <input type="text" id="alert2" size="25" readonly="readonly"><br>
+Alert3: <input type="text" id="alert3" size="25" readonly="readonly"><br>
+Alert4: <input type="text" id="alert4" size="75" readonly="readonly"><br><br>
+<input type="button" value="Ejecutar ifs" onclick="ifs();">
+<hr>
+<h3>Factorial</h3>
+Introduce un numero a calcular su factorial: <input type="text" id="inputUsuario" size="10"><br>
+Resultado: <input type="text" id="resultadoFactorial" size="10" readonly="readonly"><br>
+<input type="button" value="Hallemos el factorial!" onclick="factorial();">
+<hr>
+</form>
 </body>
 </html>
