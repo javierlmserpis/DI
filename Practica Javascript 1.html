@@ -12,17 +12,20 @@ var str2 = "adios";
 var numero2 = 2;
 
 //seccion b
-if (numero1 > numero2){
-alert("el numero 1 es mayor");}
+function formulariob() {
+  if (numero1 > numero2){
+document.getElementById("1if").value = "el numero 1 es mayor";}
 else{
-alert("el numero 2 es mayor");}
+document.getElementById("1if").value = "el numero 2 es mayor";}
 
 //seccion c - true OR false
 var res = boolean1 || boolean2;
-alert(res);
+document.getElementById("trueorfalse").value = res;
 //         true AND false
 var res2 = boolean1 && boolean2;
-alert(res2);
+document.getElementById("trueandfalse").value = res2;
+}
+
 
 //seccion d
 function operaciones(){
@@ -43,6 +46,7 @@ var resdivision = numero1 / numero2;
 }
 //ejercicio2
  function numascendentes() {
+  document.getElementById("resultascendente").value = "";
   var num1 = document.getElementById("numero1").value;
   var num2 = document.getElementById("numero2").value;
   var num3 = document.getElementById("numero3").value;
@@ -72,21 +76,81 @@ if(++numero1 < numero2) {
 }
 //ejercicio factorial
 function factorial() {
+  document.getElementById("resultadoFactorial").value = "";
   var formusuario = document.getElementById("inputUsuario").value;
   var result = 1;
-  
+  if (document.getElementById("inputUsuario").value == "") {
+    alert("ERROR FATAL, Introduzca un número");
+  }else{
   for(var i=1; i<=formusuario; i++) {
   result *= i;
-  }
+  }}
 document.getElementById("resultadoFactorial").value = result;
 }
-
+// ejercicio fibonacci
+function fibonacci() {
+  document.getElementById("resultFibonacci").value = "";
+  var cantNum = document.getElementById("inputFibonacci").value;
+  var num1 = 0;
+  var num2 = 1;
+  var result;
+  if (document.getElementById("inputFibonacci").value == "") {
+    alert("ERROR FATAL, Introduzca un número");
+    document.getElementById("resultFibonacci").value = "";
+  }else{
+  for(var i = 3; i <= cantNum; i++){
+    result = num1 + num2;
+    num1 = num2;
+    num2 = result;
+  }}
+  document.getElementById("resultFibonacci").value = result;
+//ejercicio PAR O IMPAR
+}
+function ParImpar() {
+  var Num = document.getElementById("inputParImpar").value;
+  if (document.getElementById("inputParImpar").value == "") {
+    alert("Introduzca un numero!!");
+  }else{
+  if (Num % 2 == 0) {
+    document.getElementById("resultParImpar").value = "PAR";
+  }else{
+    document.getElementById("resultParImpar").value = "IMPAR";
+  }}
+}
+//Ejercicio DNI
+function DNI() {
+  var ArrayLetras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D',
+                'X', 'B', 'N', 'J', 'Z', 'S', 'Q',
+                'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+  
+  var numerosDNI = document.getElementById("numerosDNI").value;
+  var letraDNI = document.getElementById("letraDNI").value;
+  letraDNI = letraDNI.toUpperCase();
+  
+  if (numerosDNI < 0 || numerosDNI > 99999999) {
+    alert("Ojo, los numeros del DNI no son correctos");
+    
+  }else{
+    var calcLetra = ArrayLetras[numerosDNI % 23];
+    if (calcLetra != letraDNI) {
+      document.getElementById("resultDNI").value = "NO es correcto";
+    }else{
+      document.getElementById("resultDNI").value = "SI es correcto";
+    }
+  }
+}
 </script>
 
 </head>
 <body>
 
 <form>
+<h3>Formulario b)</h3>
+Alert 1 IF: <input type="text" id="1if" readonly="readonly"><br>
+Alert true OR false: <input type="text" id="trueorfalse" readonly="readonly"><br>
+Alert true AND false: <input type="text" id="trueandfalse" readonly="readonly"><br>
+<input type="button" value="Ejecutar ifs" onclick="formulariob();">
+<hr>
 <h3>Formulario d)</h3>
 Resultado suma: <input type="text" id="resultadosuma" readonly="readonly"><br>
 Resultado resta: <input type="text" id="resultadoresta" readonly="readonly"><br>
@@ -115,6 +179,24 @@ Introduce un numero a calcular su factorial: <input type="text" id="inputUsuario
 Resultado: <input type="text" id="resultadoFactorial" size="10" readonly="readonly"><br>
 <input type="button" value="Hallemos el factorial!" onclick="factorial();">
 <hr>
+<h3>Fibonacci</h3>
+Inserte la cantidad de numeros a escribir: <input type="text" id="inputFibonacci" maxlength="7"><br>
+Resultado Fibonacci: <input type="text" id="resultFibonacci" readonly="readonly"><br>
+<input type="button" value="Fibonacci!!" onclick="fibonacci();">
+
+<h1>Apartado B</h1>
+<hr>
+Que numero le pasamos por parametro a la funcion parImpar? : <input type="text" id="inputParImpar"><br>
+Veamos si el numero es par o impar... ES: <input type="text" id="resultParImpar" readonly="readonly"><br>
+<input type="button" value="Par o impar!?" onclick="ParImpar();"><br>
+<hr>
+<h3>DNI</h3>
+Introduzca los numeros de su DNI: <input type="text" id="numerosDNI" maxlength="8" size="8"><br>
+Introduzca la letra de su DNI: <input type="text" id="letraDNI" maxlength="1" size="1"><br><br>
+
+Veamos si es correcto su DNI: <input type="text" id="resultDNI" size="8" readonly="readonly"><br>
+<input type="button" value="DNI" onclick="DNI();">
+
 </form>
 </body>
 </html>
